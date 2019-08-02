@@ -25,9 +25,9 @@ app.use((req,res,next)=>{
    next();
 });
 
-app.use((req,res,next)=>{
-   res.render('maintenance.hbs');
-});
+// app.use((req,res,next)=>{
+//    res.render('maintenance.hbs');
+// });
 
 app.get('/',(req,res)=>{
    res.render('home.hbs',{
@@ -47,7 +47,12 @@ app.get("/bad",(req,res)=>{
       errorMessage: "Unable to handle request"
    });
 });
-
+app.get("/projects",(req,res)=>{
+   res.render('projects.hbs',{
+      pageTitle: "Projects"
+      // currentYear: new Date().getFullYear()
+   });
+});
 
 
 app.use(express.static(__dirname+'/public'));
